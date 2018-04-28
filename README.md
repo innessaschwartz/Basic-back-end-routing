@@ -10,3 +10,12 @@ This template contains a great starting place to create an Angular app with a No
 - Server
 	- Node
 	- Express
+
+
+### Install
+
+`npm install` from inside `client/` and from inside `server/`.
+
+### Run
+
+`npm start` from inside `client/` and from inside `server/`.
