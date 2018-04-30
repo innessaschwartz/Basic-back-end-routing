@@ -11,6 +11,7 @@ This template contains a great starting place to create an Angular app with a No
 	- Node
 	- Express
 
+This also contains an example component and routes for my OK Coders students.
 
 ### Install
 
