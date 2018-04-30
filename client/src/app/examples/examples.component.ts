@@ -10,6 +10,8 @@ export class ExamplesComponent {
 	uptime;
 	serverTime;
 	count = 0;
+	textInput = '';
+	echoResult:any;
 
 	constructor(private http:HttpClient) {		// Inject HttpClient as http
 		this.getUptime();
@@ -26,16 +28,22 @@ export class ExamplesComponent {
 	}
 
 	getServerTime() {
-		// Same as the example above
+		// Same as the example above but condensed to one line
 		return this.http.get('/api/example/time').toPromise().then((result:any) => {
 			this.serverTime = result.text;
 		});
 	}
-
 
 	getCount() {
 		return this.http.get('/api/example/count').toPromise().then((result:any) => {
 			this.count = result.count;
 		});
 	}
+
+	echoText() {
+		return this.http.post('/api/example/echo', {text:this.textInput}).toPromise().then((result:any) => {
+			this.echoResult = result;
+		});
+	}
+
 }

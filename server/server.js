@@ -39,3 +39,12 @@ app.get('/api/example/count', (req,res) => {
 		count: count	// Return the new count
 	});
 });
+
+// POST request that echoes back the text sent
+app.post('/api/example/echo', (req,res) => {
+	var text = req.body.text;					// req.body is the object POSTed to the route
+	res.json({
+		original: text,
+		caps: text.toUpperCase()
+	});
+});
