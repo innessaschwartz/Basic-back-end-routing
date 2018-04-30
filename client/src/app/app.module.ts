@@ -8,12 +8,14 @@ import { ApiService }		from './api.service';
 
 import { AppComponent }		from './app.component';
 import { HomeComponent }	from './home/home.component';
+import { ExamplesComponent } from './examples/examples.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		HomeComponent
+		HomeComponent,
+		ExamplesComponent
 	],
 	imports: [
 		BrowserModule,
