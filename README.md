@@ -14,7 +14,9 @@ This template contains a great starting place to create an Angular app with a No
 
 ### Install
 
-`npm install` from inside `client/` and from inside `server/`.
+Open two console tabs: One inside of `client/` and one inside of `server/`.
+
+Run `npm install` from both tabs.
 
 ### Run
 
