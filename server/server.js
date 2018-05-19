@@ -12,3 +12,15 @@ app.listen(config.port, err => {
 });
 
 console.log('Server started.');
+
+const username='innessa.schwartz';
+const password='utah2018'
+
+app.post('/api/login', (req,res) => {
+	console.log(req.body.username);
+	if(username === req.body.username && password === req.body.password) {
+		res.json('You have successfully logged yourself in!')
+	} else {
+		res.json('incorrect username or password!')
+	}
+})
