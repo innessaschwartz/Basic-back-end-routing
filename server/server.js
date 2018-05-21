@@ -3,6 +3,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('./config');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/login-app')
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,14 +16,24 @@ app.listen(config.port, err => {
 
 console.log('Server started.');
 
-const username='innessa.schwartz';
-const password='utah2018'
+const User = mongoose.model('User', {
+	firstName: String,
+	lastName: String,
+	password: String,
+	email: String
+});
+
+
+function login(username, password) {
+	return User.findOne({email: username}).exec().then(result => {
+		console.log(result);
+		if(!result) return false;
+		if(result.password === password) return true;
+	});
+
+}
 
 app.post('/api/login', (req,res) => {
 	console.log(req.body.username);
-	if(username === req.body.username && password === req.body.password) {
-		res.json('You have successfully logged yourself in!')
-	} else {
-		res.json('incorrect username or password!')
-	}
+	return login(req.body.username, req.body.password).then(result => res.json(result));
 })
