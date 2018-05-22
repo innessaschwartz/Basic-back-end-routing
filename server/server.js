@@ -25,10 +25,10 @@ const User = mongoose.model('User', {
 
 
 function login(username, password) {
-	return User.findOne({email: username}).exec().then(result => {
-		console.log(result);
-		if(!result) return false;
-		if(result.password === password) return true;
+	return User.findOne({email: username}).exec().then(user => {
+		console.log(user);
+		if(!user) return false;
+		if(user.password === password) return user;
 	});
 
 }
